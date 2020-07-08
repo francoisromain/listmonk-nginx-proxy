@@ -4,8 +4,6 @@ services:
   proxy:
     build: .
     environment:
-      LETSENCRYPT_HOST: ${URL}
-      LETSENCRYPT_EMAIL: ${EMAIL}
       VIRTUAL_HOST: ${URL}
       VIRTUAL_PORT: ${PORT}
       NGINX_PORT: ${PORT}
@@ -26,7 +24,7 @@ services:
     restart: unless-stopped
 
   db:
-    image: postgres:12
+    image: postgres:11
     ports:
       - "9432:5432"
     environment:

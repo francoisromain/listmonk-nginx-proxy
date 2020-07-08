@@ -1,3 +1,3 @@
 # mail.comutone.com
 
-listmonk server
+listmonk server with amazon SES

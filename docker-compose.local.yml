@@ -27,7 +27,7 @@ services:
       LISTMONK_app__logo_url: ${LISTMONK_app__logo_url}
       LISTMONK_app__favicon_url: ${LISTMONK_app__favicon_url}
       LISTMONK_app__from_email: ${LISTMONK_app__from_email}
-      LISTMONK_app__notify_emails: ["francoisromain@gmail.com"]
+      LISTMONK_app__notify_emails: ${LISTMONK_app__notify_emails}
       LISTMONK_db__host: ${LISTMONK_db__host}
       LISTMONK_db__port: ${LISTMONK_db__port}
       LISTMONK_db__user: ${LISTMONK_db__user}

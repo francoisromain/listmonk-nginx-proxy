@@ -13,6 +13,8 @@ services:
       - ${PORT}
     volumes:
       - ./.htpasswd:/etc/nginx/.htpasswd:ro
+    depends_on:
+      - app
     restart: unless-stopped
 
   app:
@@ -21,6 +23,8 @@ services:
       - ${LISTMONK_PORT}
     depends_on:
       - db
+    volumes:
+      - ./.env:/.env
     restart: unless-stopped
 
   db:

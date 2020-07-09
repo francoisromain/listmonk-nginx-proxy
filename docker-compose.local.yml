@@ -28,12 +28,10 @@ services:
 
   db:
     image: postgres:12
-    ports:
-      - "${LISTMONK_db__port}:5432"
     environment:
-      - POSTGRES_PASSWORD=${LISTMONK_db__password}
-      - POSTGRES_USER=${LISTMONK_db__user}
-      - POSTGRES_DB=${LISTMONK_db__database}
+      POSTGRES_DB: ${LISTMONK_db__database}
+      POSTGRES_USER: ${LISTMONK_db__user}
+      POSTGRES_PASSWORD: ${LISTMONK_db__password}
     restart: unless-stopped
     volumes:
       - type: volume

@@ -1,3 +1,6 @@
-# listmonk reverse proxy
+# Listmonk reverse proxy
 
-listmonk server with amazon SES
+- listmonk
+- amazon SES
+
+In the context of a [docker/nginx-proxy](https://github.com/nginx-proxy/nginx-proxy)

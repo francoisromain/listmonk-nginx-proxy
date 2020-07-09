@@ -23,30 +23,14 @@ services:
       - ${APP_PORT}
     depends_on:
       - db
-    environment:
-      LISTMONK_app__address: ${LISTMONK_app__address}
-      LISTMONK_app__root: ${LISTMONK_app__root}
-      LISTMONK_app__logo_url: ${LISTMONK_app__logo_url}
-      LISTMONK_app__favicon_url: ${LISTMONK_app__favicon_url}
-      LISTMONK_app__from_email: ${LISTMONK_app__from_email}
-      LISTMONK_app__notify_emails: ${LISTMONK_app__notify_emails}
-      LISTMONK_db__host: ${LISTMONK_db__host}
-      LISTMONK_db__port: ${LISTMONK_db__port}
-      LISTMONK_db__user: ${LISTMONK_db__user}
-      LISTMONK_db__password: ${LISTMONK_db__password}
-      LISTMONK_db__database: ${LISTMONK_db__database}
-      LISTMONK_smtp__my0__enable: ${LISTMONK_smtp__my0__enable}
-      LISTMONK_smtp__my0__host: ${LISTMONK_smtp__my0__host}
-      LISTMONK_smtp__my0__port: ${LISTMONK_smtp__my0__port}
-      LISTMONK_smtp__my0__auth_protocol: ${LISTMONK_smtp__my0__auth_protocol}
-      LISTMONK_smtp__my0__username: ${LISTMONK_smtp__my0__username}
-      LISTMONK_smtp__my0__password: ${LISTMONK_smtp__my0__password}
+    env_file:
+      - .env
     restart: unless-stopped
 
   db:
     image: postgres:12
-    expose:
-      - ${LISTMONK_db__port}
+    ports:
+      - "9432:5432"
     environment:
       - POSTGRES_PASSWORD=${LISTMONK_db__password}
       - POSTGRES_USER=${LISTMONK_db__user}

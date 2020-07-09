@@ -18,21 +18,19 @@ services:
   app:
     image: listmonk/listmonk:latest
     expose:
-      - 9000
+      - ${LISTMONK_PORT}
     depends_on:
       - db
-    volumes:
-      - ./config.toml:/listmonk/config.toml
     restart: unless-stopped
 
   db:
     image: postgres:12
-    ports:
-      - "9432:5432"
+    expose:
+      - ${LISTMONK_db__port}
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_PASSWORD=${LISTMONK_db__password}
+      - POSTGRES_USER=${LISTMONK_db__user}
+      - POSTGRES_DB=${LISTMONK_db__database}
     restart: unless-stopped
     volumes:
       - type: volume

@@ -1,3 +1,3 @@
-# mail.comutone.com
+# listmonk reverse proxy
 
 listmonk server with amazon SES

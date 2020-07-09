@@ -1,5 +1,5 @@
 upstream listmonk {
-  server app:9000;
+  server app:${APP_PORT};
 }
 
 server {

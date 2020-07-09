@@ -9,6 +9,7 @@ services:
       VIRTUAL_HOST: ${URL}
       VIRTUAL_PORT: ${PORT}
       NGINX_PORT: ${PORT}
+      APP_PORT: ${APP_PORT}
     expose:
       - ${PORT}
     volumes:
@@ -30,7 +31,7 @@ services:
   db:
     image: postgres:12
     ports:
-      - "9432:5432"
+      - "${LISTMONK_db__port}:5432"
     environment:
       - POSTGRES_PASSWORD=${LISTMONK_db__password}
       - POSTGRES_USER=${LISTMONK_db__user}
